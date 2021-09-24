@@ -1,7 +1,7 @@
 var hourForm = $("<div>").addClass("time-block row");
 var hourLable = $("<p>").addClass("hour");
 var textEntry = $("<textarea>").addClass("description");
-var saveBtn = $("<button>").addClass("saveBtn");
+var saveBtn = $("<button>").addClass("saveBtn").text("Save");
 var inputArray = [];
 
 //outputs the current day at the top of the page
@@ -27,11 +27,11 @@ for (let i=0; i<=24; i++) {
     iterateHour = iterateHour.format("k");
     
     //decides the color and sets the appropriate tasks based on whether the hour-block is current, present or future
-    if (iterateHour > currentHour) {
-        idAssign.addClass("future");
-    }
-    else if (iterateHour < currentHour) {
+    if (currentHour > iterateHour) {
         idAssign.addClass("past");
+    }
+    else if (currentHour < iterateHour) {
+        idAssign.addClass("future");
     }
     else {
         idAssign.addClass("present");
@@ -39,7 +39,11 @@ for (let i=0; i<=24; i++) {
     console.log(iterateHour);
     console.log(currentHour);
 
-    //saves the user input to the input array
+    //sets the users saved input up
 }
 $("#block0").remove();
 
+saveBtn.click(function(){
+    parentNumber = saveBtn.parent().attr("number");
+    alert(parentNumber);
+});
