@@ -1,12 +1,10 @@
-
-
 var inputArray = [];
 
 //outputs the current day at the top of the page
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
 //Displays the elements on the page by creating a timeblock for each hour in the day and appending the required elements to it.
-for (let i=0; i<=8; i++) {
+for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
     var hourLable = $("<p>").addClass("hour");
@@ -22,23 +20,22 @@ for (let i=0; i<=8; i++) {
     //Clones and appends the neccessary elements to the time block storage
 
 
-    hourForm.attr("number", i);
+    saveBtn.attr("number", i);
     hourForm.append(hourLable.text(iterateHour.format("hA")));
     hourForm.append(textEntry);
     hourForm.append(saveBtn);
     hourForm.attr("id", idAssign);
     
-
-    //variable reassignment 
-    //idAssign = $("#" + idAssign);
+    //changes the time format to a number for comparision and idAssign for easier assignment
     iterateHour = iterateHour.format("k");
+    idAssign = $("#" + idAssign);
     
     //decides the color and sets the appropriate tasks based on whether the hour-block is current, present or future
-    if (currentHour > iterateHour) {
-        hourForm.addClass("past");
-    }
-    else if (currentHour < iterateHour) {
+    if (currentHour < iterateHour && iterateHour != 9) {
         hourForm.addClass("future");
+    }
+    else if (currentHour > iterateHour && currentHour > 9) {
+        hourForm.addClass("past");
     }
     else {
         hourForm.addClass("present");
@@ -46,12 +43,13 @@ for (let i=0; i<=8; i++) {
     $("#block-storage").append(hourForm);
     console.log(iterateHour);
     console.log(currentHour);
+    console.log(currentHour > 9);
 
     //sets the users saved input up
+    saveBtn.click(function(){
+        btnNum = saveBtn.attr("number");
+        console.log(btnNum);
+      //  inputArray[parentNumber] = 
+    });
 }
-//$("#block0").remove();
 
-saveBtn.click(function(){
-    parentNumber = saveBtn.parent().attr("number");
-    alert(parentNumber);
-});
