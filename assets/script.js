@@ -1,4 +1,5 @@
 var inputArray = [];
+var currentHour = moment().format("k");
 
 //outputs the current day at the top of the page
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
@@ -14,7 +15,7 @@ for (let i=0; i<9; i++) {
     let stringI = timeDisplayed.toString();
     let idAssign = "block"+stringI;
     let iterateHour = moment(stringI, "k");
-    let currentHour = moment().format("k");
+    
 
 
     //Clones and appends the neccessary elements to the time block storage
@@ -31,14 +32,15 @@ for (let i=0; i<9; i++) {
     idAssign = $("#" + idAssign);
     
     //decides the color and sets the appropriate tasks based on whether the hour-block is current, present or future
-    if (currentHour < iterateHour && iterateHour != 9) {
+   //currentHour = 16;
+    if (currentHour < iterateHour  && iterateHour != 9) {
         hourForm.addClass("future");
     }
-    else if (currentHour > iterateHour && currentHour > 9) {
-        hourForm.addClass("past");
+    else if (currentHour === iterateHour) {
+        hourForm.addClass("present");
     }
     else {
-        hourForm.addClass("present");
+        hourForm.addClass("past");
     } 
     $("#block-storage").append(hourForm);
     console.log(iterateHour);
@@ -46,10 +48,11 @@ for (let i=0; i<9; i++) {
     console.log(currentHour > 9);
 
     //sets the users saved input up
-    saveBtn.click(function(){
-        btnNum = saveBtn.attr("number");
-        console.log(btnNum);
-      //  inputArray[parentNumber] = 
-    });
+
 }
 
+saveBtn.click(function(){
+    btnNum = saveBtn.attr("number");
+    console.log(btnNum);
+  //  inputArray[parentNumber] = 
+});
