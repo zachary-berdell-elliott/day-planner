@@ -47,7 +47,7 @@ for (let i=0; i<9; i++) {
     saveBtn.click(function(){
         btnNum = $(this).attr("number");
         console.log(btnNum);
-        inputArray[btnNum] = $(this).siblings("textarea").text();
+        inputArray[btnNum] = $(this).siblings("textarea").val();
     });
 }
 
