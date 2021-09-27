@@ -1,3 +1,4 @@
+//global variable assignment
 var inputArray = [];
 var currentHour = moment().format("k");
 
@@ -16,11 +17,7 @@ for (let i=0; i<9; i++) {
     let idAssign = "block"+stringI;
     let iterateHour = moment(stringI, "k");
     
-
-
     //Clones and appends the neccessary elements to the time block storage
-
-
     saveBtn.attr("number", i);
     hourForm.append(hourLable.text(iterateHour.format("hA")));
     hourForm.append(textEntry);
@@ -31,8 +28,7 @@ for (let i=0; i<9; i++) {
     iterateHour = iterateHour.format("k");
     idAssign = $("#" + idAssign);
     
-    //decides the color and sets the appropriate tasks based on whether the hour-block is current, present or future
-   //currentHour = 16;
+    //decides the color based on whether the hour-block is current, present or future
     if (currentHour < iterateHour  && iterateHour != 9) {
         hourForm.addClass("future");
     }
@@ -48,11 +44,10 @@ for (let i=0; i<9; i++) {
     console.log(currentHour > 9);
 
     //sets the users saved input up
-
+    saveBtn.click(function(){
+        btnNum = $(this).attr("number");
+        console.log(btnNum);
+      //  inputArray[parentNumber] = 
+    });
 }
 
-saveBtn.click(function(){
-    btnNum = saveBtn.attr("number");
-    console.log(btnNum);
-  //  inputArray[parentNumber] = 
-});
