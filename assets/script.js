@@ -50,8 +50,7 @@ for (let i=0; i<9; i++) {
         btnNum = $(this).attr("number");
         console.log(btnNum);
         inputArray[btnNum] = $(this).siblings("textarea").val();
+        savedArray = JSON.stringify(inputArray);
+        localStorage.setItem("savedArray", savedArray);
     });
 }
-
-var savedArray = JSON.stringify(inputArray);
-localStorage.setItem("savedArray", savedArray);
