@@ -2,7 +2,8 @@
 var inputArray = [];
 var currentHour = moment().format("k");
 //retrieves content from the local storage
-
+var savedArray = JSON.parse(localStorage.getItem("savedArray"));
+inputArray = savedArray;
 
 //outputs the current day at the top of the page
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
@@ -12,7 +13,7 @@ for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
     var hourLable = $("<p>").addClass("hour");
-    var textEntry = $("<textarea>").addClass("description");
+    var textEntry = $("<textarea>").val(inputArray[i]).addClass("description");
     var saveBtn = $("<button>").addClass("saveBtn").text("Save");
     let timeDisplayed = i + 9;
     let stringI = timeDisplayed.toString();
