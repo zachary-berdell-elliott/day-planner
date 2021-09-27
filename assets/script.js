@@ -1,6 +1,8 @@
 //global variable assignment
 var inputArray = [];
 var currentHour = moment().format("k");
+//retrieves content from the local storage
+
 
 //outputs the current day at the top of the page
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
@@ -51,3 +53,5 @@ for (let i=0; i<9; i++) {
     });
 }
 
+var savedArray = JSON.stringify(inputArray);
+localStorage.setItem("savedArray", savedArray);
