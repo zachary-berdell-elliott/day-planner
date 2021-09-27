@@ -43,11 +43,11 @@ for (let i=0; i<9; i++) {
     console.log(currentHour);
     console.log(currentHour > 9);
 
-    //sets the users saved input up
+    //sets the users saved input up and saves the input to the proper spot in the array
     saveBtn.click(function(){
         btnNum = $(this).attr("number");
         console.log(btnNum);
-      //  inputArray[parentNumber] = 
+        inputArray[btnNum] = $(this).siblings("textarea").text();
     });
 }
 
