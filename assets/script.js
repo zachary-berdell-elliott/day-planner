@@ -17,7 +17,7 @@ for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
     var hourLable = $("<p>").addClass("hour");
-    var textEntry = $("<textarea>").val(inputArray[i]).addClass("description input-block-level");
+    var textEntry = $("<textarea>").val(inputArray[i]).addClass("description input-block-level col-sm");
     var saveBtn = $("<button>").addClass("saveBtn justify-content-end ml-auto").text("Save");
     let timeDisplayed = i + 9;
     let stringI = timeDisplayed.toString();
