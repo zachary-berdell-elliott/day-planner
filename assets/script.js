@@ -13,8 +13,8 @@ for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
     var hourLable = $("<p>").addClass("hour");
-    var textEntry = $("<textarea>").val(inputArray[i]).addClass("description");
-    var saveBtn = $("<button>").addClass("saveBtn").text("Save");
+    var textEntry = $("<textarea>").val(inputArray[i]).addClass("description input-block-level");
+    var saveBtn = $("<button>").addClass("saveBtn justify-content-end ml-auto").text("Save");
     let timeDisplayed = i + 9;
     let stringI = timeDisplayed.toString();
     let idAssign = "block"+stringI;
@@ -42,14 +42,11 @@ for (let i=0; i<9; i++) {
         hourForm.addClass("past");
     } 
     $("#block-storage").append(hourForm);
-    console.log(iterateHour);
-    console.log(currentHour);
-    console.log(currentHour > 9);
 
     //sets the users saved input up and saves the input to the proper spot in the array
     saveBtn.click(function(){
         btnNum = $(this).attr("number");
-        console.log(btnNum);
+        console.log(btnNum + " saved to local storage");
         inputArray[btnNum] = $(this).siblings("textarea").val();
         savedArray = JSON.stringify(inputArray);
         localStorage.setItem("savedArray", savedArray);
