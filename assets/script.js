@@ -3,7 +3,11 @@ var inputArray = [];
 var currentHour = moment().format("k");
 //retrieves content from the local storage
 var savedArray = JSON.parse(localStorage.getItem("savedArray"));
-inputArray = savedArray;
+
+//checks to make sure the array is not null before assigning it.
+if(savedArray != null){
+    inputArray = savedArray;
+}
 
 //outputs the current day at the top of the page
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
