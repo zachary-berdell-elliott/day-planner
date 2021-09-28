@@ -16,17 +16,23 @@ $("#currentDay").text(moment().format("dddd, MMMM Do"));
 for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
-    var hourLable = $("<p>").addClass("hour");
+    var hourLable = $("<p>").addClass("hour ml-3");
     var textEntry = $("<textarea>").val(inputArray[i]).addClass("description input-block-level col-sm");
     var saveBtn = $("<button>").addClass("saveBtn justify-content-end ml-auto").text("Save");
     let timeDisplayed = i + 9;
     let stringI = timeDisplayed.toString();
     let idAssign = "block"+stringI;
     let iterateHour = moment(stringI, "k");
+    let hourText = iterateHour.format("hA")
+
+    //Adds two spaces infront of the text if the lable is only three characters to make the lables even.
+    if (hourText.length < 4){
+        hourText = "  " + hourText;
+    }
     
     //Clones and appends the neccessary elements to the time block storage
     saveBtn.attr("number", i);
-    hourForm.append(hourLable.text(iterateHour.format("hA")));
+    hourForm.append(hourLable.text(hourText));
     hourForm.append(textEntry);
     hourForm.append(saveBtn);
     hourForm.attr("id", idAssign);
