@@ -16,7 +16,7 @@ $("#currentDay").text(moment().format("dddd, MMMM Do"));
 for (let i=0; i<9; i++) {
     //variable assignment
     var hourForm = $("<div>").addClass("time-block row");
-    var hourLable = $("<p>").addClass("hour ml-3");
+    var hourLable = $("<p>").addClass("hour pl-3 mb-0");
     var textEntry = $("<textarea>").val(inputArray[i]).addClass("description input-block-level col-sm");
     var saveBtn = $("<button>").addClass("saveBtn justify-content-end ml-auto").text("Save");
     let timeDisplayed = i + 9;
