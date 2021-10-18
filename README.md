@@ -14,7 +14,7 @@ Times are fetched and written using moment js. The user can write an element in 
 ## Time block styling
 The timeblocks will be color coded according to whether the hour is in the past present or future. The blocks are grey for past, red for present, and green for future.
 
-##License
+## License
 MIT
 
 Copyright 2021 Zachary Elliott
